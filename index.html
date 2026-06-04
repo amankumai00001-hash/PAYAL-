@@ -1,0 +1,277 @@
+# Install first:
+# pip install qrcode pillow
+
+import qrcode
+import os
+
+html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Payal ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+color:white;
+overflow-x:hidden;
+scroll-snap-type:y mandatory;
+}
+
+.page{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+scroll-snap-align:start;
+}
+
+h1{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+p{
+font-size:1.3rem;
+line-height:1.8;
+max-width:800px;
+}
+
+.candle{
+font-size:140px;
+cursor:pointer;
+transition:0.5s;
+}
+
+.hidden{
+display:none;
+}
+
+.heart{
+font-size:50px;
+animation:float 2s infinite alternate;
+}
+
+@keyframes float{
+from{transform:translateY(0);}
+to{transform:translateY(-15px);}
+}
+
+.final{
+font-size:4rem;
+color:#ff6b9d;
+}
+
+button{
+padding:15px 35px;
+margin:10px;
+border:none;
+border-radius:50px;
+font-size:18px;
+cursor:pointer;
+}
+
+.yes{
+background:#ff6b9d;
+color:white;
+}
+
+.think{
+background:white;
+color:black;
+}
+
+#surprise{
+font-size:1.5rem;
+margin-top:20px;
+color:#ffd1dc;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- PAGE 1 -->
+
+<section class="page">
+
+<h1>🕯️ Blow Out This Candle</h1>
+
+<p>And make a little wish...</p>
+
+<br>
+
+<div class="candle" onclick="blowCandle()">🕯️</div>
+
+<div id="msg" class="hidden">
+
+<br><br>
+
+<p>
+Sometimes the most beautiful things
+begin with a single spark.
+</p>
+
+<br>
+
+<p>⬇ Swipe Down ⬇</p>
+
+</div>
+
+</section>
+
+<!-- PAGE 2 -->
+
+<section class="page">
+
+<div class="heart">❤️</div>
+
+<br>
+
+<h1>Dear Payal,</h1>
+
+<p>
+There are people we meet and forget...
+<br><br>
+And then there are people who quietly become
+a part of our happiest memories.
+<br><br>
+You became one of mine.
+</p>
+
+<br>
+
+<p>⬇ Swipe Down ⬇</p>
+
+</section>
+
+<!-- PAGE 3 -->
+
+<section class="page">
+
+<div class="heart">🌹</div>
+
+<br>
+
+<p>
+Every conversation with you feels special.
+<br><br>
+Every smile of yours stays in my mind
+a little longer than it should.
+<br><br>
+And somewhere along the way...
+<br><br>
+You became more than just my best friend.
+</p>
+
+<br>
+
+<p>⬇ Swipe Down ⬇</p>
+
+</section>
+
+<!-- PAGE 4 -->
+
+<section class="page">
+
+<div class="heart">❤️🌹❤️</div>
+
+<br>
+
+<h1 class="final">
+Dear Payal
+</h1>
+
+<br>
+
+<h1>
+Will You Be My Girlfriend?
+</h1>
+
+<br>
+
+<p>
+No matter what your answer is...
+<br><br>
+You will always be someone I deeply
+appreciate and care about.
+</p>
+
+<br>
+
+<button class="yes"
+onclick="yesClicked()">
+Yes ❤️
+</button>
+
+<button class="think"
+onclick="alert('❤️ Take Your Time ❤️')">
+Let Me Think 🌹
+</button>
+
+<div id="surprise"></div>
+
+</section>
+
+<script>
+
+function blowCandle(){
+
+document.querySelector('.candle').innerHTML="💨";
+
+document.getElementById('msg').classList.remove('hidden');
+
+}
+
+function yesClicked(){
+
+document.getElementById('surprise').innerHTML =
+"❤️ You Just Made My Day ❤️";
+
+}
+
+</script>
+
+</body>
+</html>
+"""
+
+# Save website
+with open("Payal_Proposal.html","w",encoding="utf-8") as f:
+    f.write(html)
+
+print("Payal_Proposal.html Created")
+
+# CHANGE THIS LINK AFTER HOSTING YOUR HTML FILE
+website_link = "https://your-website-link.com"
+
+# Create QR
+img = qrcode.make(website_link)
+img.save("Payal_QR.png")
+
+print("Payal_QR.png Created")
+print()
+print("FILES READY:")
+print("1. Payal_Proposal.html")
+print("2. Payal_QR.png")
+print()
+print("Upload Payal_Proposal.html to GitHub Pages or Netlify.")
+print("Then replace website_link with your real URL and run again.")
